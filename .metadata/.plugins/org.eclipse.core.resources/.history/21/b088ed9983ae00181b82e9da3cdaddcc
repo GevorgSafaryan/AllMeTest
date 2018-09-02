@@ -1,0 +1,12 @@
+package page.failedlogin;
+
+import org.openqa.selenium.WebDriver;
+
+import driver.BaseDriver;
+
+public class FailedLoginPage extends BaseDriver{
+	
+	public FailedLoginPage (WebDriver driver) {
+		super(driver);
+	}
+}

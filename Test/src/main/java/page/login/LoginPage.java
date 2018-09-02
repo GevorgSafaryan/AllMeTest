@@ -1,0 +1,65 @@
+package page.login;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import constants.Constants;
+import driver.BaseDriver;
+import page.failedlogin.FailedLoginPage;
+import page.usersprofile.UsersProfile;
+
+public class LoginPage extends  BaseDriver{
+	 
+	@FindBy(id = Constants.LOGIN_FIELD)
+	WebElement loginField;
+	@FindBy(id = Constants.PASS_FIELD)
+	WebElement passField;
+	@FindBy (id = Constants.LOGIN_BUTTON)
+	WebElement loginButton;
+	@FindBy (id = Constants.QUICK_LOGIN)
+	WebElement quickLoginPanel;
+	@FindBy(id = Constants.AVATAR)
+	WebElement avatar;
+	
+	//Constructor
+	public LoginPage(WebDriver driver){
+		super(driver);
+	}
+	
+	public void fillLogin(String login) {
+		this.loginField.clear();
+		this.loginField.sendKeys(login);
+	}
+	
+	public void fillPass(String pass) {
+		this.passField.clear();
+		this.passField.sendKeys(pass);
+	}
+	
+	public UsersProfile successfullyLogin(String login, String pass){
+		fillLogin(login);
+		fillPass(pass);
+		this.loginButton.click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return new UsersProfile(driver);
+	}
+	
+	public FailedLoginPage unsuccessfullyLogin(String login, String pass) {
+		fillLogin(login);
+		fillPass(pass);
+		this.loginButton.click();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		return new FailedLoginPage(driver);
+	}
+	
+	public boolean quickLoginPanesIsDisplayed(){
+		return quickLoginPanel.isDisplayed();
+	}
+	
+	public int logOutState(){
+		return this.driver.findElements(By.id(Constants.AVATAR)).size();
+	}
+}

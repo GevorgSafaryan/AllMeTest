@@ -1,0 +1,47 @@
+package allme;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import constants.Constants;
+import page.login.LoginPage;
+import page.usersprofile.UsersProfile;
+
+public class VkTests {
+
+	WebDriver driver;
+	
+
+	@BeforeMethod
+	private void init() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("disable-infobars");
+		driver = new ChromeDriver(options);
+		driver.get(Constants.URL);
+		driver.manage().window().maximize();
+	}
+
+	
+	LoginPage login;
+	UsersProfile user;
+	@Test
+	public void login(){
+		login = new LoginPage(driver);
+		login.fillLogin("");
+		login.fillPass("");
+		user = login.clickOnLoginButton();
+		Assert.assertTrue(user.avatarIsDisplayed());
+		Assert.assertEquals(user.getUserPageTitle(),"News");
+		
+	}
+
+}

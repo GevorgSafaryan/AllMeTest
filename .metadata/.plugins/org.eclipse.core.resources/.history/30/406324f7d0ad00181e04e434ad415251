@@ -1,0 +1,46 @@
+package page.login;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import constants.Constants;
+
+public class LoginPage {
+	private WebDriver driver;
+	private final String loginFieldId = Constants.LOGIN_FIELD;
+	private final String passFieldId = Constants.PASS_FIELD;
+	private final String loginButtonId = Constants.LOGIN_BUTTON;
+	
+	@FindBy(id = loginFieldId)
+	WebElement loginField;
+	
+	@FindBy(id = passFieldId)
+	WebElement passField;
+	
+	@FindBy (id = loginButtonId)
+	WebElement loginButton;
+	
+	//Constructor
+	public LoginPage (WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void fillLogin(String login) {
+		this.loginField.clear();
+		this.loginField.sendKeys(login);
+	}
+	
+	public void fillPass(String pass) {
+		this.passField.clear();
+		this.passField.sendKeys(pass);
+	}
+	
+	public UsersProfile clickOnLoginButton()
+	{
+		this.loginButton.click();
+		return new UsersProfile(driver);
+	}
+}

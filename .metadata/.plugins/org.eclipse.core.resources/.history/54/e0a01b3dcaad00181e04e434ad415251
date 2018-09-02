@@ -1,0 +1,24 @@
+package allme;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeClass;
+
+import constants.Constants;
+
+public class VkTests {
+	WebDriver driver;
+	private String url = Constants.URL;
+	
+	@BeforeClass
+	private void init() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("disable-infobars");
+		this.driver = new ChromeDriver(options);
+		this.driver.get(url);
+		this.driver.manage().window().maximize();
+	}
+
+}

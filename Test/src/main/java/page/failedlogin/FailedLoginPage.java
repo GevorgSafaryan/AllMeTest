@@ -1,0 +1,23 @@
+package page.failedlogin;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import constants.Constants;
+import driver.BaseDriver;
+
+public class FailedLoginPage extends BaseDriver{
+	
+	@FindBy(id = Constants.ERROR_LOGIN_MESSAGE)
+	WebElement errorMessage;
+	
+	//Constructor
+	public FailedLoginPage (WebDriver driver) {
+		super(driver);
+	}
+	
+	public boolean failedLoginConfirmation() {
+		return errorMessage.isDisplayed();
+	}
+}

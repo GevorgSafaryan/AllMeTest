@@ -1,0 +1,40 @@
+package allme;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import page.login.LoginPage;
+import page.usersprofile.UsersProfile;
+
+public class VkTests extends BaseTest{
+
+	LoginPage login;
+	UsersProfile userProfile;
+	FailedLoginPage failedLogin;
+	
+	@Test
+	public void login() {
+		login = new LoginPage(driver);
+		userProfile = login.successfullyLogin("TestAllMe@mail.ru", "TestAllMe2018");
+		Assert.assertTrue(userProfile.avatarIsDisplayed());
+		Assert.assertEquals(userProfile.getUserPageTitle(),"News");
+	}
+	
+	@Test
+	public void logout(){
+		login = new LoginPage(driver);
+		userProfile = login.successfullyLogin("TestAllMe@mail.ru", "TestAllMe2018");
+		userProfile.clickOnUserAvatar();
+		login = userProfile.clickOnLogout();
+		Assert.assertTrue(login.quickLoginPanesIsDisplayed());
+		Assert.assertEquals(login.logOutState(), 0);
+	}
+	
+	@Test
+	public void tryToLoginWithIncorrectEmail(){
+		login = new LoginPage(driver);
+		failedLogin = login.unsuccessfullyLogin("TestAll@mail.ru", "TestAllMe2018")
+		
+	}
+
+}

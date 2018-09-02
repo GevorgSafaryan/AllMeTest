@@ -1,0 +1,14 @@
+package page.login;
+
+import org.openqa.selenium.WebDriver;
+
+import constants.Constants;
+
+public class LoginPage {
+	private WebDriver driver;
+	private final String loginField = Constants.LOGIN_FIELD;
+	private final String passField = Constants.PASS_FIELD;
+	private final String loginButton = Constants.LOGIN_BUTTON;
+	
+
+}

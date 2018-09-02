@@ -1,0 +1,40 @@
+package page.usersprofile;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import constants.Constants;
+import driver.BaseDriver;
+import page.login.LoginPage;
+
+public class UsersProfile extends BaseDriver{
+	
+	@FindBy(id = Constants.AVATAR)
+	WebElement avatar;
+	@FindBy(id = Constants.LOGOUT_LINK)
+	WebElement logoutLink;
+	
+	//Constructor
+	public UsersProfile(WebDriver driver) {
+		super(driver);
+	}
+	
+	public boolean avatarIsDisplayed() {
+		return avatar.isDisplayed();
+	}
+	public String getUserPageTitle(){
+		return driver.getTitle();
+	}
+	
+	public void clickOnUserAvatar(){
+		this.avatar.click();
+	}
+	
+	public LoginPage clickOnLogout(){
+		this.logoutLink.click();
+		return new LoginPage(driver);
+	}
+}

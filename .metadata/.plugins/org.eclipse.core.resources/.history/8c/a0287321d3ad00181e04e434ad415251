@@ -1,0 +1,8 @@
+package page.usersprofile;
+
+import org.openqa.selenium.WebDriver;
+
+public class UsersProfile {
+	private WebDriver driver;
+	
+}

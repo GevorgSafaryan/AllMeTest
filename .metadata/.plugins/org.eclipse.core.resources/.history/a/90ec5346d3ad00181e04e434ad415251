@@ -1,0 +1,13 @@
+package page.usersprofile;
+
+import org.openqa.selenium.WebDriver;
+
+import constants.Constants;
+
+public class UsersProfile {
+	private WebDriver driver;
+	private final String profileLinkId = Constants.PROFILE_LINK;
+	
+	@FindBy(id = profileLinkId)
+	WebElement profileLink;
+}

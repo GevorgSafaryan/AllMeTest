@@ -1,0 +1,10 @@
+package constants;
+
+public class Constants {
+	public static final String URL = "http://vk.com";
+	public static final String LOGIN_FIELD = "index_email";
+	public static final String PASS_FIELD = "index_pass";
+	public static final String LOGIN_BUTTON = "index_login_button";
+    public static final String AVATAR = "top_profile_link";
+    public static final String LOGOUT_LINK = "top_logout_link";
+}

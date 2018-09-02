@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="24127" started-at="2018-09-02T11:38:53Z" finished-at="2018-09-02T11:39:17Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="24127" started-at="2018-09-02T11:38:53Z" finished-at="2018-09-02T11:39:17Z">
+      <class name="allme.VkTests">
+        <test-method status="PASS" signature="setup()[pri:0, instance:allme.VkTests@66a3ffec]" name="setup" is-config="true" duration-ms="14847" started-at="2018-09-02T11:38:53Z" finished-at="2018-09-02T11:39:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="login()[pri:0, instance:allme.VkTests@66a3ffec]" name="login" duration-ms="8347" started-at="2018-09-02T11:39:08Z" finished-at="2018-09-02T11:39:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:allme.VkTests@66a3ffec]" name="cleanUp" is-config="true" duration-ms="863" started-at="2018-09-02T11:39:16Z" finished-at="2018-09-02T11:39:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- allme.VkTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

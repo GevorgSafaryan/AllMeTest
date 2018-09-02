@@ -1,0 +1,18 @@
+package allme;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
+
+import constants.Constants;
+
+public class VkTests {
+	WebDriver driver;
+	private String url = Constants.URL;
+	
+	@BeforeClass
+	private void init() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Gevor\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		
+	}
+
+}

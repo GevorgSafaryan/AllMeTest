@@ -1,0 +1,28 @@
+package page.usersprofile;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import constants.Constants;
+
+public class UsersProfile {
+	private WebDriver driver;
+	private final String profileLinkId = Constants.PROFILE_LINK;
+	
+	@FindBy(id = profileLinkId)
+	WebElement profileLink;
+	
+	//Constructor
+	public UsersProfile(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void loginConfirmation() {
+		Assert.assertTrue(profileLink.isDisplayed());
+		Assert.assertEquals(driver.getTitle(), "News");
+	}
+}

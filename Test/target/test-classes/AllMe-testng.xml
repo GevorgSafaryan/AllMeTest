@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="AllMeTest" configfailurepolicy="continue"
+    verbose="9" >
+  <test name="Test" preserve-order="true">
+    <classes>
+       <class name="allme.VkTests" />
+    </classes>
+  </test>
+  </suite>

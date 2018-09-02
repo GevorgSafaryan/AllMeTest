@@ -1,0 +1,43 @@
+package allme;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import constants.Constants;
+import page.login.LoginPage;
+import page.usersprofile.UsersProfile;
+
+public class VkTests extends BaseTest{
+
+	LoginPage login;
+	UsersProfile userProfile;
+	
+	/*@Test
+	public void login() {
+		login = new LoginPage(driver);
+		login.fillLogin("TestAllMe@mail.ru");
+		login.fillPass("TestAllMe2018");
+		userProfile = login.clickOnLoginButton();
+		Assert.assertTrue(userProfile.avatarIsDisplayed());
+		Assert.assertEquals(userProfile.getUserPageTitle(),"News");
+	}*/
+	
+	@Test
+	public void logout(){
+		login = new LoginPage(driver);
+		login.fillLogin("TestAllMe@mail.ru");
+		login.fillPass("TestAllMe2018");
+		userProfile = login.clickOnLoginButton();
+		userProfile.clickOnUserAvatar();
+		login = userProfile.clickOnLogout();
+	}
+
+}
